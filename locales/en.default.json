@@ -1,0 +1,26 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_text": "Skip to content"
+    },
+    "cart": {
+      "title": "Cart",
+      "items_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      }
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "from": "From"
+    }
+  },
+  "templates": {
+    "search": {
+      "no_results": "No results found."
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "current": {
+    "color_bg": "#FFFFFF",
+    "color_surface": "#FAFAF7",
+    "color_ink": "#0A0A0A",
+    "color_muted": "#6B7280",
+    "color_border": "#ECECEC",
+    "font_family": "inter"
+  },
+  "presets": {
+    "Default": {
+      "color_bg": "#FFFFFF",
+      "color_surface": "#FAFAF7",
+      "color_ink": "#0A0A0A",
+      "color_muted": "#6B7280",
+      "color_border": "#ECECEC",
+      "font_family": "inter"
+    }
+  }
+}

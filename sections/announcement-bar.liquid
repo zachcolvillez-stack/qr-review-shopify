@@ -1,0 +1,20 @@
+{%- if section.settings.message != blank -%}
+  <div class="announcement" role="region" aria-label="Announcement">
+    {{ section.settings.message }}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "Free shipping Australia-wide · 48hr dispatch"
+    }
+  ],
+  "presets": [{ "name": "Announcement bar" }]
+}
+{% endschema %}

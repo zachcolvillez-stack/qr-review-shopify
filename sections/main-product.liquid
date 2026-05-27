@@ -1,0 +1,79 @@
+<section class="product">
+  <div class="container">
+    <div class="product__grid">
+      <div class="product__media fade-in">
+        {%- if product.featured_image != blank -%}
+          {{ product.featured_image | image_url: width: 1200 | image_tag:
+            loading: 'eager',
+            fetchpriority: 'high',
+            widths: '500, 800, 1200',
+            sizes: '(min-width: 900px) 50vw, 100vw',
+            alt: product.featured_image.alt | default: product.title
+          }}
+        {%- endif -%}
+      </div>
+
+      <div class="product__info fade-in">
+        <span class="eyebrow">{{ product.type | default: 'QR Review Product' }}</span>
+        <h1 class="product__title">{{ product.title }}</h1>
+        <div class="product__price" data-variant-price>
+          {{ product.selected_or_first_available_variant.price | money }}
+        </div>
+
+        <div class="product__desc">{{ product.description }}</div>
+
+        {%- form 'product', product, class: 'product__form' -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" data-variant-input>
+
+          {%- unless product.has_only_default_variant -%}
+            <div class="product__options" data-variant-group>
+              {%- for option in product.options_with_values -%}
+                <div class="product__option">
+                  <label>{{ option.name }}</label>
+                  <div class="product__variants">
+                    {%- for value in option.values -%}
+                      {%- assign variant_for_value = product.variants | where: option.name | first -%}
+                      <button type="button" class="product__variant {% if option.selected_value == value %}is-active{% endif %}" data-variant="{{ variant_for_value.id }}" data-price="{{ variant_for_value.price | money }}">
+                        {{ value }}
+                      </button>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endunless -%}
+
+          <button type="submit" class="btn btn--primary btn--lg btn--block" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
+            {%- if product.selected_or_first_available_variant.available -%}
+              Add to cart &mdash; {{ product.selected_or_first_available_variant.price | money }}
+            {%- else -%}
+              Sold out
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+
+        <div class="product__trust">
+          <div>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 4 6-7"/></svg>
+            Free shipping Australia-wide
+          </div>
+          <div>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg>
+            Dispatched within 48 hours
+          </div>
+          <div>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5l2.2 4.5 4.8.7-3.5 3.4.8 4.8L8 12.6 3.7 14.9l.8-4.8L1 6.7l4.8-.7z"/></svg>
+            Designed and printed in Perth, WA
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": []
+}
+{% endschema %}

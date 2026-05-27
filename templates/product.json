@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product"
+    },
+    "benefits": {
+      "type": "benefits",
+      "settings": {
+        "eyebrow": "Why this product",
+        "heading": "Premium where it counts"
+      }
+    },
+    "faq": {
+      "type": "faq"
+    },
+    "final-cta": {
+      "type": "final-cta"
+    }
+  },
+  "order": ["main", "benefits", "faq", "final-cta"]
+}

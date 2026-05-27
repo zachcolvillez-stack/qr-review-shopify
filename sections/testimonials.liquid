@@ -1,0 +1,63 @@
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header fade-in">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p>{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="testimonials">
+      {%- for block in section.blocks -%}
+        <article class="testimonial fade-in" {{ block.shopify_attributes }}>
+          <div class="testimonial__stars" aria-label="5 out of 5 stars">
+            {%- for i in (1..5) -%}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.2l2.1 4.5 4.9.5-3.7 3.4 1.1 4.8L8 12l-4.4 2.4 1.1-4.8L1 6.2l4.9-.5z"/></svg>
+            {%- endfor -%}
+          </div>
+          <p class="testimonial__quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+          <p class="testimonial__author">
+            <strong>{{ block.settings.name }}</strong><br>
+            {{ block.settings.role }}
+          </p>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What customers say" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real businesses. Real reviews." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "From cafes to mechanics, our QR cards are quietly working in hundreds of Australian businesses." }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "text", "id": "role", "label": "Role / Business" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "We went from 40 to 180 reviews in three months. Easiest marketing we've ever done.", "name": "Sam", "role": "Owner, North Perth Coffee" } },
+        { "type": "testimonial", "settings": { "quote": "Customers actually use it. I put one on every invoice now.", "name": "Dave", "role": "Mechanic, Joondalup Auto" } },
+        { "type": "testimonial", "settings": { "quote": "Looks professional on the counter. Worth every cent.", "name": "Lara", "role": "Studio Barber, Fremantle" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

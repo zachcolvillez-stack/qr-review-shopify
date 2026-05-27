@@ -1,0 +1,52 @@
+<section class="section section--tight">
+  <div class="container container--narrow">
+    <h1 style="margin-bottom: 32px;">Your cart</h1>
+
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" novalidate>
+        <ul style="list-style:none;padding:0;margin:0 0 32px;border-top:1px solid var(--color-border);">
+          {%- for item in cart.items -%}
+            <li style="display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--color-border);">
+              {%- if item.image -%}
+                <a href="{{ item.url }}" style="flex-shrink:0;width:80px;height:80px;background:var(--color-surface);border-radius:var(--radius-sm);overflow:hidden;">
+                  {{ item.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: item.title, widths: '160' }}
+                </a>
+              {%- endif -%}
+              <div style="flex:1;">
+                <div style="display:flex;justify-content:space-between;gap:16px;margin-bottom:6px;">
+                  <a href="{{ item.url }}" style="font-weight:500;">{{ item.product.title }}</a>
+                  <span style="font-weight:600;">{{ item.final_line_price | money }}</span>
+                </div>
+                {%- unless item.product.has_only_default_variant -%}
+                  <p class="muted" style="font-size:0.9rem;margin-bottom:8px;">{{ item.variant.title }}</p>
+                {%- endunless -%}
+                <div style="display:flex;align-items:center;gap:12px;font-size:0.9rem;">
+                  <label for="updates_{{ item.key }}" class="visually-hidden">Quantity</label>
+                  <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" style="width:64px;padding:6px 8px;border:1px solid var(--color-border);border-radius:var(--radius-sm);">
+                  <a href="{{ item.url_to_remove }}" class="muted">Remove</a>
+                </div>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;margin-bottom:24px;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);">
+          <span style="font-size:1.05rem;">Subtotal</span>
+          <span style="font-size:1.25rem;font-weight:600;">{{ cart.total_price | money }}</span>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button type="submit" name="update" class="btn btn--secondary">Update cart</button>
+          <button type="submit" name="checkout" class="btn btn--primary">Check out</button>
+        </div>
+      </form>
+    {%- else -%}
+      <p class="muted" style="margin-bottom:24px;">Your cart is empty.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary">Continue shopping</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

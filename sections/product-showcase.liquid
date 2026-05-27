@@ -1,0 +1,81 @@
+<section class="section">
+  <div class="container">
+    <div class="showcase {% if section.settings.reverse %}showcase--reverse{% endif %}">
+      <div class="showcase__media fade-in">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1200 | image_tag:
+            loading: 'lazy',
+            widths: '400, 600, 900, 1200',
+            sizes: '(min-width: 900px) 50vw, 100vw',
+            alt: section.settings.image.alt | default: section.settings.heading
+          }}
+        {%- else -%}
+          <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--color-muted);font-size:0.9rem;">Showcase image</div>
+        {%- endif -%}
+      </div>
+
+      <div class="showcase__content fade-in">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2 class="showcase__title">{{ section.settings.heading }}</h2>
+        <p class="showcase__body">{{ section.settings.body }}</p>
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="showcase__list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'point' -%}
+                <li {{ block.shopify_attributes }}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 4 6-7"/></svg>
+                  {{ block.settings.text }}
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if section.settings.cta_text != blank -%}
+          <a href="{{ section.settings.cta_link }}" class="btn btn--primary">
+            {{ section.settings.cta_text }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product showcase",
+  "settings": [
+    { "type": "checkbox", "id": "reverse", "label": "Image on right", "default": false },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "QR Review Cards" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Cards that earn their place on the counter." },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "Printed on 350gsm matte stock. Subtly branded with your business name and logo. Designed to look like part of your space — not like a hand-made printout." },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Shop cards" },
+    { "type": "url", "id": "cta_link", "label": "CTA link" }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Feature point",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Product showcase",
+      "blocks": [
+        { "type": "point", "settings": { "text": "350gsm matte premium card stock" } },
+        { "type": "point", "settings": { "text": "Optional logo and business name" } },
+        { "type": "point", "settings": { "text": "Permanent QR code, never expires" } },
+        { "type": "point", "settings": { "text": "Designed and printed in Perth, WA" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

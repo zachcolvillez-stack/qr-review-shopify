@@ -1,0 +1,41 @@
+<section class="logo-bar">
+  <div class="container">
+    <p class="logo-bar__label">{{ section.settings.label }}</p>
+    <div class="logo-bar__items">
+      {%- for block in section.blocks -%}
+        <span {{ block.shopify_attributes }}>{{ block.settings.name }}</span>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Logo bar",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Trusted by local businesses across Australia" }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Business name",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Business name" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Logo bar",
+      "blocks": [
+        { "type": "logo", "settings": { "name": "North Perth Coffee" } },
+        { "type": "logo", "settings": { "name": "Joondalup Auto" } },
+        { "type": "logo", "settings": { "name": "Studio Barber" } },
+        { "type": "logo", "settings": { "name": "Fremantle Pilates" } },
+        { "type": "logo", "settings": { "name": "Coastal Tradies" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

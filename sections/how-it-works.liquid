@@ -1,0 +1,55 @@
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header fade-in">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p>{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="steps">
+      {%- for block in section.blocks -%}
+        <div class="step fade-in" {{ block.shopify_attributes }}>
+          <span class="step__num">{{ forloop.index }}</span>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.body }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How it works",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How it works" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Three steps. That's it." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "From ordering to receiving reviews — under a week, no tech skills required." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "body", "label": "Body" }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "How it works",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Send your link", "body": "Paste your Google review URL at checkout. Takes 60 seconds." } },
+        { "type": "step", "settings": { "title": "We design your code", "body": "Branded QR card or sticker, printed and dispatched within 48 hours." } },
+        { "type": "step", "settings": { "title": "Customers scan and review", "body": "Place on counters, tables, or receipts. Watch reviews roll in." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
