@@ -44,7 +44,7 @@
         "p2": {
           "type": "product",
           "settings": {
-            "title": "QR Review Stickers",
+            "title": "NFC Review Stickers",
             "description": "Waterproof vinyl. Stick on windows, EFTPOS machines, menus, and receipts.",
             "price_fallback": "From $19",
             "price_unit": " for 25"
@@ -84,7 +84,7 @@
       "type": "product-showcase",
       "settings": {
         "reverse": true,
-        "eyebrow": "QR Review Stickers",
+        "eyebrow": "NFC Review Stickers",
         "heading": "Stickers that work wherever your customers stand.",
         "body": "Waterproof vinyl, scratch-resistant, and finished to look premium. Stick on windows, EFTPOS terminals, menus, receipts — anywhere a customer's eyes already go.",
         "cta_text": "Shop stickers"
