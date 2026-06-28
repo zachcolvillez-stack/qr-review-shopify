@@ -24,7 +24,7 @@
       "type": "how-it-works",
       "blocks": {
         "s1": { "type": "step", "settings": { "title": "Send your link", "body": "Paste your Google review URL at checkout. Takes 60 seconds." } },
-        "s2": { "type": "step", "settings": { "title": "We design your code", "body": "Branded QR card or sticker, printed and dispatched within 48 hours." } },
+        "s2": { "type": "step", "settings": { "title": "We design your code", "body": "Branded NFC card or sticker, printed and dispatched within 48 hours." } },
         "s3": { "type": "step", "settings": { "title": "Customers scan and review", "body": "Place on counters, tables, or receipts. Watch reviews roll in." } }
       },
       "block_order": ["s1", "s2", "s3"]
