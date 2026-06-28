@@ -261,6 +261,14 @@ p { margin: 0; }
   height: 100%;
   object-fit: cover;
 }
+/* Landscape (16:9) video in the portrait media card: show the whole frame,
+   centered on black so the letterbox blends with the video's dark background. */
+.hero__media--video {
+  background: #0A0A0A;
+}
+.hero__media--video .hero__video {
+  object-fit: contain;
+}
 @media (min-width: 900px) {
   .hero { padding: 120px 0 96px; }
   .hero__grid { grid-template-columns: 1fr 1fr; gap: 80px; }
