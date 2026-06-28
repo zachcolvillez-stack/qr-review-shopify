@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <div class="hero__media fade-in">
+      <div class="hero__media fade-in{% if section.settings.show_hero_video %} hero__media--video{% endif %}">
         {%- if section.settings.show_hero_video -%}
           <video class="hero__video"
                  autoplay muted loop playsinline preload="auto"
