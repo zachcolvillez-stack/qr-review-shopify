@@ -255,7 +255,8 @@ p { margin: 0; }
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
-.hero__media img {
+.hero__media img,
+.hero__media .hero__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
