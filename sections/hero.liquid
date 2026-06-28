@@ -35,7 +35,13 @@
       </div>
 
       <div class="hero__media fade-in">
-        {%- if section.settings.image != blank -%}
+        {%- if section.settings.show_hero_video -%}
+          <video class="hero__video"
+                 autoplay muted loop playsinline preload="auto"
+                 {%- if section.settings.image != blank %} poster="{{ section.settings.image | image_url: width: 1200 }}"{% endif %}>
+            <source src="{{ 'hero-video.mp4' | asset_url }}" type="video/mp4">
+          </video>
+        {%- elsif section.settings.image != blank -%}
           {{ section.settings.image | image_url: width: 1200 | image_tag:
             loading: 'eager',
             fetchpriority: 'high',
