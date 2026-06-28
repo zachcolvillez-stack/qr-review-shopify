@@ -2,7 +2,11 @@
   <div class="container">
     <div class="header__inner">
       <a href="{{ routes.root_url }}" class="header__logo">
-        {{ section.settings.logo_text | default: shop.name }}
+        {%- if section.settings.show_logo_image -%}
+          <img src="{{ 'logo.png' | asset_url }}" alt="{{ section.settings.logo_text | default: shop.name }}" width="40" height="40">
+        {%- else -%}
+          {{ section.settings.logo_text | default: shop.name }}
+        {%- endif -%}
       </a>
 
       <nav class="header__nav" aria-label="Primary">
