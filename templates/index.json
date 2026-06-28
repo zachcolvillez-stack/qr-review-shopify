@@ -75,7 +75,7 @@
       "blocks": {
         "p1": { "type": "point", "settings": { "text": "350gsm matte premium card stock" } },
         "p2": { "type": "point", "settings": { "text": "Optional logo and business name" } },
-        "p3": { "type": "point", "settings": { "text": "Permanent QR code, never expires" } },
+        "p3": { "type": "point", "settings": { "text": "Permanent NFC tag, never expires" } },
         "p4": { "type": "point", "settings": { "text": "Designed and printed in Perth, WA" } }
       },
       "block_order": ["p1", "p2", "p3", "p4"]
