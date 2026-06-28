@@ -35,7 +35,7 @@
         "p1": {
           "type": "product",
           "settings": {
-            "title": "QR Review Cards",
+            "title": "NFC Review Cards",
             "description": "Premium 350gsm matte cards. Sit on counters and tables. Optional logo and business name.",
             "price_fallback": "From $29",
             "price_unit": " for 10"
@@ -67,7 +67,7 @@
       "type": "product-showcase",
       "settings": {
         "reverse": false,
-        "eyebrow": "QR Review Cards",
+        "eyebrow": "NFC Review Cards",
         "heading": "Cards that earn their place on the counter.",
         "body": "Printed on 350gsm matte stock. Subtly branded with your business name and logo. Designed to look like part of your space — not a hand-made printout.",
         "cta_text": "Shop cards"
