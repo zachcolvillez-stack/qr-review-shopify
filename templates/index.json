@@ -110,7 +110,7 @@
       "type": "faq",
       "blocks": {
         "q1": { "type": "qa", "settings": { "question": "How do I send my Google review link?", "answer": "After you order, we'll email a short form. Paste your Google Business review URL — done. Takes about 60 seconds." } },
-        "q2": { "type": "qa", "settings": { "question": "How long does setup take?", "answer": "We design your QR code, send a proof, and dispatch within 48 hours of approval. Most orders arrive within 4 business days." } },
+        "q2": { "type": "qa", "settings": { "question": "How long does setup take?", "answer": "We set up your NFC card, send a proof, and dispatch within 48 hours of approval. Most orders arrive within 4 business days." } },
         "q3": { "type": "qa", "settings": { "question": "Can I add my logo?", "answer": "Yes — free, on all cards and most sticker sizes. Just upload it during checkout or email it to us afterwards." } },
         "q4": { "type": "qa", "settings": { "question": "Do you ship Australia-wide?", "answer": "Yes. 2-4 business days via Australia Post tracked. Free shipping on all orders." } },
         "q5": { "type": "qa", "settings": { "question": "Are the QR codes permanent?", "answer": "Yes. They link directly to your Google review page and never expire. No subscriptions, no app required." } }
